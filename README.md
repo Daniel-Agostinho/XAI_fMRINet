@@ -1,1 +1,1 @@
-# XAI-fMRINet
+# XAI_fMRINet
