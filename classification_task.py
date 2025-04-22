@@ -53,6 +53,8 @@ def experiment(network_name, atlas, k_folds, network_parameters, trainner_parame
         best_cross_loss = 1000
 
         for train_fold, train_dataset, validation_dataset in train_generator:
+
+            # Create new model
             model = initialize_model(network_name, network_parameters)
             logger.start_train_log(train_fold)
 
