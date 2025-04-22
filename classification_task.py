@@ -48,12 +48,12 @@ def experiment(network_name, atlas, k_folds, network_parameters, trainner_parame
 
     for fold_test, test_participants, test_dataset, train_generator in data_iter:
         logger = HCPLogger(fold_test, test_participants, network_name, SEED, atlas)
-        model = initialize_model(network_name, network_parameters)
 
         best_cross_fold = -1
         best_cross_loss = 1000
 
         for train_fold, train_dataset, validation_dataset in train_generator:
+            model = initialize_model(network_name, network_parameters)
             logger.start_train_log(train_fold)
 
             trainner = CNNTrainner(model=model, train_dataset=train_dataset, valid_dataset=validation_dataset,
